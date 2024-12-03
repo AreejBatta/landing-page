@@ -1,0 +1,34 @@
+.ftr-prop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+footer{
+    background-color: #430430;
+}
+footer i{
+    color: rgb(219, 230, 226);
+    margin: 5px;
+}
+.return{
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #450b2c;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+}
+@media(max-width:600px){
+    .ftr-prop, .ftr-flex{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }}

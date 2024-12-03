@@ -1,0 +1,94 @@
+.logo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 25%;
+    margin-left: 47%;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+ 
+header{
+    background-color: rgba(77, 9, 58,0.5);
+    top: 0px;
+    left:0px;
+    position: fixed;
+    z-index: 10;
+    height: 90px;
+    width:100%;
+}
+nav{
+    opacity: 0;
+    transition: opacity 2s;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.navItems {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0%;
+    align-items: center;
+    align-content:center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+ul a{
+    text-decoration: none;
+    color: rgb(255, 255, 253);
+}
+.glitter-text {
+    font-size: 25px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fff 10%, #ffebcd 30%, #ffd700 50%, #ffebcd 70%, #fff 90%);
+    background-size: 200% 100%;
+    background-clip: text;
+    /* -webkit-background-clip: text; */
+    color: transparent;
+    animation: glitter 2s linear infinite;
+}
+
+@keyframes glitter {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+         background-position: 200% 0%;
+    }
+}
+.respDiv{
+    display: none;
+    cursor: pointer;
+    margin-left: calc(95% );
+}
+.bar{
+    display: block;
+    color: white;
+    margin-top: 5px;
+}
+@media(max-width:736px){
+    .respDiv{
+        display: block;
+        position: fixed;
+    }
+    .respDiv.activate .bar{
+        display: none;
+    }
+    .navTop{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgb(77, 7, 62);
+        text-align: center;
+        width:100%;
+    }
+    .navTop .activate{
+        left: 0;
+    }
+    .navTop li{
+        display: block;
+        font-size: 10px;
+        margin: 0px 10px;
+    }
+}
