@@ -60,6 +60,7 @@ window.addEventListener('scroll', (e)=>{
 
   header.addEventListener('pointerout', () => {
     header.style.opacity = '0';
+    navBar.style.opacity='0';
   });
 // creating footer with document fragment
 const footerList=document.createDocumentFragment();
