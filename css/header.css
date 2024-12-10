@@ -78,7 +78,7 @@ ul a{
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-@media(max-width:416px){
+@media(max-width:601px){
     .logo img{
         margin-left: calc(45%);
         margin-top: 15px;
