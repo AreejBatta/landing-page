@@ -51,25 +51,66 @@ window.addEventListener('scroll', (e)=>{
   }, 50 )
   });
 //hide navigation bar when the pointer out
-  const header = document.querySelector('header');
-  const navBar=document.querySelector('nav');
-  header.addEventListener('pointerover', () => {
-    header.style.opacity = '1';
-    navBar.style.opacity='1';
-  });
+  // const header = document.querySelector('header');
+  // const navBar=document.querySelector('nav');
+  // header.addEventListener('pointerover', () => {
+  //   header.style.opacity = '1';
+  //   navBar.style.opacity='1';
+  // });
 
-  header.addEventListener('pointerout', () => {
+  // header.addEventListener('pointerout', () => {
+  //   header.style.opacity = '0';
+  //   navBar.style.opacity='0';
+  // });
+  // document.addEventListener('touchstart', (e) => {
+  //   if (header.contains(e.target)) {
+  //     header.style.opacity= '1';
+  //   } else {
+  //     header.style.opacity= '0';
+  //   }
+  // });
+const header = document.querySelector('header');
+const navBar = document.querySelector('nav');
+let isFocused = false; // Track menu visibility state
+
+// Function to show the menu
+const showMenu = () => {
+  isFocused = true;
+  header.style.opacity = '1';
+  navBar.style.opacity = '1';
+};
+
+// Function to hide the menu
+const hideMenu = () => {
+  if (!isFocused) {
     header.style.opacity = '0';
-    navBar.style.opacity='0';
-  });
-  document.addEventListener('touchstart', (e) => {
-    if (header.contains(e.target)) {
-      header.style.opacity= '1';
-    } else {
-      header.style.opacity= '0';
-    }
-  });
-  
+    navBar.style.opacity = '0';
+  }
+};
+
+// Desktop Hover Events
+header.addEventListener('mouseenter', showMenu);
+header.addEventListener('mouseleave', () => {
+  isFocused = false;
+  setTimeout(hideMenu, 200);
+});
+
+navBar.addEventListener('mouseenter', showMenu);
+navBar.addEventListener('mouseleave', () => {
+  isFocused = false;
+  setTimeout(hideMenu, 200); // Delay for smooth hiding
+});
+
+// Mobile Touch Events
+document.addEventListener('touchstart', (e) => {
+  if (header.contains(e.target) || navBar.contains(e.target)) {
+    showMenu();
+  } else {
+    isFocused = false;
+    hideMenu();
+  }
+});
+
 // creating footer with document fragment
 const footerList=document.createDocumentFragment();
 const footerItems=[
