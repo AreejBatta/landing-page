@@ -53,12 +53,12 @@ window.addEventListener('scroll', (e)=>{
 //hide navigation bar when the pointer out
   const header = document.querySelector('header');
   const navBar=document.querySelector('nav');
-  document.addEventListener('pointerover', () => {
+  header.addEventListener('pointerover', () => {
     header.style.opacity = '1';
     navBar.style.opacity='1';
   });
 
-  document.addEventListener('pointerout', () => {
+  header.addEventListener('pointerout', () => {
     header.style.opacity = '0';
   });
 // creating footer with document fragment
