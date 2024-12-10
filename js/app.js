@@ -1,3 +1,4 @@
+file:///c%3A/udacity/Landing%20Page/js/app.js {"mtime":1733691183817,"ctime":1733085095788,"size":3782,"etag":"3dei9ip6b3t0","orphaned":false,"typeId":""}
 
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll('section');
@@ -14,13 +15,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     // drop-down hamburger menu btn clicking
     const hamburgerMenu= document.querySelector('.respDiv');
-    const navMenu= document.querySelector('.navTop');
+    const navMenu= document.querySelector('.navItems');
     hamburgerMenu.addEventListener('click', ()=>{
-        ulList.classList.remove('navItems');
-        hamburgerMenu.classList.toggle('activate')
-        ulList.classList.add('activate', 'navTop');
+        hamburgerMenu.classList.toggle('activate');
+        navMenu.classList.toggle('activate');
     })
-
+    const navLink= document.querySelectorAll('.navItems a');
+    navLink.forEach(link=> 
+      link.addEventListener('click', ()=>{
+        hamburgerMenu.classList.toggle('activate');
+        navMenu.classList.toggle('activate'); 
+      }))   
     // Function to add sections & update active nav item and section background based on scroll position
     const navItems = document.querySelectorAll('.navItems li');
     function updateSections() {
@@ -37,9 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     }
-// Update active nav item and section background on page load and on scroll
-    window.addEventListener('scroll', updateSections);
-    updateSections();
+window.addEventListener('scroll', (e)=>{
+  e.preventDefault();
+  updateSections();
+})
+  setTimeout(() => {
+  updateSections();
+  }, 50 )
   });
 //hide navigation bar when the pointer out
   const header = document.querySelector('header');
@@ -75,7 +84,7 @@ document.body.appendChild(footerList);
 // go to top button 
 const toUp = document.querySelector('.toUp');
 window.addEventListener('scroll', function() {
-    if (window.pageYOffset < 20) {
+    if (window.scrollY < 30) {
         toUp.style.visibility = 'hidden';
         toUp.style.opacity = '0';
     } else {
@@ -84,6 +93,6 @@ window.addEventListener('scroll', function() {
     }
 });
 const home = document.querySelector("#section-1");
- toUp.addEventListener('click', ()=>{
-    document.documentElement.scrollTop = 0;})
-
+ toUp.addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.scrollTo({ top: home.offsetTop, behavior: 'smooth' })});

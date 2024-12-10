@@ -28,6 +28,7 @@ footer i{
 @media(max-width:600px){
     .ftr-prop, .ftr-flex{
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
