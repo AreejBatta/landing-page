@@ -62,6 +62,14 @@ window.addEventListener('scroll', (e)=>{
     header.style.opacity = '0';
     navBar.style.opacity='0';
   });
+  document.addEventListener('touchstart', (e) => {
+    if (header.contains(e.target)) {
+      header.style.opacity= '1';
+    } else {
+      header.style.opacity= '0';
+    }
+  });
+  
 // creating footer with document fragment
 const footerList=document.createDocumentFragment();
 const footerItems=[
